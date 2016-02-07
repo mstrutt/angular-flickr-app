@@ -1,0 +1,16 @@
+{
+  "name": "angular-flickr-app",
+  "description": "",
+  "main": "app/index.html",
+  "authors": [
+    "Michael Strutt"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "angular": "^1.5.0",
+    "normalize-css": "normalize.css#^3.0.3"
+  }
+}
