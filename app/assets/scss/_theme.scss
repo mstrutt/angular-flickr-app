@@ -1,42 +1,51 @@
+html {
+	// 1px = .1rem
+	font-size: 10px;
+
+	@media (min-width: 50em) {
+		font-size: 11px;
+	}
+}
+
 body {
-	color: #333;
+	color: $body-text;
+	background: $body-bg;
+	font-family: $body-font;
+	font-size: $default-text;
+}
+
+h1 {
+	font-size: 2.4rem;
+	font-weight: 400;
+	line-height: 32px;
+}
+
+h2 {
+	font-size: 2rem;
+	font-weight: 400;
+	letter-spacing: .005em;
 }
 
 a {
+	color: $primary;
 	text-decoration: none;
+	transition: .1s;
 
 	&:hover {
-		text-decoration: underline;
+		color: $primary-highlight;
 	}
+
+	&:active {
+		transform: translateY(1px);
+	}
+}
+
+.content-block {
+	margin: 1em 0;
+	background: white;
+	box-shadow: $shadow;
 }
 
 .placeholder {
-	color: rgba(0, 0, 0, .54);
-}
-
-.back-button {
-	$back-button-color: grey;
-	$back-button-size: 36px;
-
-	position: relative;
-	height: $back-button-size;
-	line-height: $back-button-size;
-	padding: 0 1em 0 .75em;
-	margin-left: ($back-button-size / 2) + 10;
-	background: $back-button-color;
-	color: white;
-
-	&:hover {
-		text-decoration: none;
-	}
-
-	&::before {
-		content: '';
-		display: block;
-		position: absolute;
-		top: 0;
-		right: 100%;
-		border: ($back-button-size / 2) solid transparent;
-		border-right-color: $back-button-color;
-	}
+	color: $weak;
 }

@@ -1,6 +1,6 @@
 .post {
 	& + & {
-		border-top: 1px solid;
+		border-top: 1px solid $border;
 	}
 
 	display: flex;
@@ -14,6 +14,12 @@
 		max-width: 240px;
 		background-position: 50% 50%;
 		// background-size: cover;
+		opacity: 1;
+		transition: opacity .1s;
+
+		&:hover {
+			opacity: .85;
+		}
 
 		@media (min-width: 30em) {
 			width: 50%;
@@ -26,7 +32,7 @@
 	}
 
 	&__title {
-		margin-top: 0;
+		margin: 0 0 .6em;
 		overflow: hidden;
 		white-space: nowrap;
 		text-overflow: ellipsis;
@@ -34,6 +40,12 @@
 
 	&__author {
 		padding-right: 1em;
+	}
+
+	&__author,
+	&__link {
+		display: inline-block;
+		line-height: 1.5;
 	}
 
 	@media (min-width: 50em) { // 800px
@@ -49,7 +61,7 @@
 
 		&__author {
 			order: 2;
-			font-size: 1.2em;
+			font-size: $large-text;
 			padding: 0;
 		}
 

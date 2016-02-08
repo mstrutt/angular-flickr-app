@@ -1,4 +1,4 @@
-<ol class="no-bullet">
+<ol class="content-block no-bullet">
 	<li class="post" ng-repeat="item in ::vm.feed track by item.link">
 		<a class="post__thumb" ng-href="/photo/{{ ::item.author }}/{{ ::item.id }}" style="background-image: url('{{ ::item.media.m }}')">
 			<span class="visually-hidden" ng-bind="::item.title"></span>
