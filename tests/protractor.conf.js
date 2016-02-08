@@ -15,10 +15,14 @@ exports.config = {
 
 	framework: 'jasmine2',
 
-	plugins: [{
-		chromeA11YDevTools: true,
-		path: require.resolve('protractor/plugins/accessibility/index.js')
-	}],
+	plugins: [
+		{
+			package: 'protractor-accessibility-plugin',
+			chromeA11YDevTools: {
+				treatWarningsAsFailures: true
+			}
+		}
+	],
 
 	jasmineNodeOpts: {
 		defaultTimeoutInterval: 30000

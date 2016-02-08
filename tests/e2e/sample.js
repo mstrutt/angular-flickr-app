@@ -6,6 +6,6 @@ describe('My app', function() {
 	it('should have a title', function() {
 		var title = browser.getTitle();
 		expect(title).toBeDefined();
-		expect(title).not.toEqual('');
+		expect(title).toEqual('Angular Flickr App');
 	});
 });

@@ -41,7 +41,8 @@
     "karma-junit-reporter": "^0.3.3",
     "ng-annotate": "^1.0.2",
     "node-sass": "^3.3.1",
-    "protractor": "^2.5.1",
+    "protractor": "^3.0.0",
+    "protractor-accessibility-plugin": "^0.1.1",
     "selenium-webdriver": "^2.45.1",
     "wiredep": "^2.2.2"
   }
