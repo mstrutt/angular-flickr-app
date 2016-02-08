@@ -1,5 +1,12 @@
-function FlickrService ($http, $sce, $filter) {
+function FlickrService ($http, $q, $sce, $filter) {
 	var service = this;
+	var cache = {};
+
+	function cacheData (items) {
+		items.forEach(function(item) {
+			cache[item.id] = item;
+		});
+	}
 
 	function formatDate (date) {
 		var $date = $filter('date');
@@ -32,7 +39,7 @@ function FlickrService ($http, $sce, $filter) {
 			}
 		})
 			.then(function(response) {
-				return response.data.items.map(function(item) {
+				var items = response.data.items.map(function(item) {
 					item.id = item.link.match(/\/(\d+)\/$/)[1];
 					item.author = item.author.replace(/nobody@flickr.com \((.+)\)/, '$1');
 					item.published_formatted = formatDate(item.published);
@@ -41,10 +48,19 @@ function FlickrService ($http, $sce, $filter) {
 					item.description = $sce.trustAsHtml(item.description.replace(/^(\s*<p>.+?<\/p>\s*){2,2}/, '') || '<p class="placeholder">No description provided</p>');
 					return item;
 				});
+
+				cacheData(items);
+				return items;
 			});
 	};
 
 	service.getPhotoById = function(id) {
+		var cached = cache[id];
+
+		if (cached) {
+			return $q.when(cached);
+		}
+
 		return service
 			.getFeed()
 			.then(function(items) {
