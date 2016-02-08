@@ -1,4 +1,4 @@
-function FlickrService ($http, $filter) {
+function FlickrService ($http, $sce, $filter) {
 	var service = this;
 
 	function formatDate (date) {
@@ -33,11 +33,30 @@ function FlickrService ($http, $filter) {
 		})
 			.then(function(response) {
 				return response.data.items.map(function(item) {
+					item.id = item.link.match(/\/(\d+)\/$/)[1];
 					item.author = item.author.replace(/nobody@flickr.com \((.+)\)/, '$1');
 					item.published_formatted = formatDate(item.published);
-					item.id = item.link.match(/\/(\d+)\/$/)[1];
+					item.tags = item.tags.split(' ');
+					// First two paragraphs are always the poster and the photo
+					item.description = $sce.trustAsHtml(item.description.replace(/^(\s*<p>.+?<\/p>\s*){2,2}/, ''));
 					return item;
 				});
+			});
+	};
+
+	service.getPhotoById = function(id) {
+		return service
+			.getFeed()
+			.then(function(items) {
+				var index;
+				items.some(function(item, i) {
+					var match = item.id === id
+					if (match) {
+						index = i;
+					}
+					return match;
+				});
+				return items[index];
 			});
 	};
 }

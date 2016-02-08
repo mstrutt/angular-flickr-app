@@ -8,6 +8,8 @@ function RoutingConfig ($stateProvider, $urlRouterProvider, $locationProvider) {
 		})
 		.state('detail', {
 			url: '/photo/:author/:id',
+			controller: 'DetailController as vm',
+			resolve: DetailController.resolve,
 			templateUrl: 'views/detail.html'
 		});
 

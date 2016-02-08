@@ -1,0 +1,20 @@
+<a href="/">Back</a>
+
+<h1><a ng-href="{{ ::vm.photo.link }}" ng-bind="::vm.photo.title"></a></h1>
+
+<p>
+	<a ng-href="https://flickr.com/photos/{{ ::vm.photo.author_id }}/" ng-bind="::vm.photo.author"></a> | Published: <time datetime="{{ ::vm.photo.published }}" ng-bind="::vm.photo.published_formatted"></time>
+</p>
+
+<img ng-src="{{ ::vm.photo.media.m }}" alt="{{ ::vm.photo.title }}" />
+
+<div ng-bind-html="::vm.photo.description"></div>
+
+<div class="tags">
+	<h2 class="tags__heading">Tags:</h2>
+	<ul class="tags__list no-bullet inline">
+		<li ng-repeat="tag in ::vm.photo.tags track by tag">
+			<a ng-href="https://www.flickr.com/photos/tags/{{ ::tag }}/" ng-bind="::tag"></a>
+		</li>
+	</ul>
+</div>
