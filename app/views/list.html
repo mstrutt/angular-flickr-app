@@ -1,1 +1,16 @@
 <h1> Flickr Public Feed</h1>
+
+<ol>
+	<li ng-repeat="item in ::vm.feed track by item.link">
+		<h2><a ng-href="{{ ::item.link }}"></a></h2>
+		<img ng-src="{{ ::item.media.m }}" alt="{{ ::item.title }}" />
+		<a ng-href="{{ ::item.author_id }}" ng-bind="::item.author"></a>
+		<p>
+			<span>Published</span>
+			<date datetime="{{ ::item.published }}" ng-bind="::item.published | date: 'd MMM yyyy'"></date>
+			<span>at</span>
+			<span ng-bind="::item.published | date: 'h:mm'"></span>
+		</p>
+		<a ng-href="{{ ::item.link }}">View on Flickr</a>
+	</li>
+</ol>

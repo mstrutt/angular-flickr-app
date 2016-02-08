@@ -13,7 +13,7 @@ function FlickrService ($http) {
 			}
 		})
 			.then(function(response) {
-				return response.data;
+				return response.data.items;
 			});
 	};
 }
