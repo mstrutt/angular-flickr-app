@@ -10,7 +10,8 @@ var gulp = require('gulp'),
 	minifyCss = require('gulp-minify-css'),
 	uglify = require('gulp-uglify'),
 	usemin = require('gulp-usemin'),
-	del = require('del');
+	del = require('del'),
+	wrap = require("gulp-wrap");
 
 function handleError (err) {
 	console.log(err.toString());
@@ -48,6 +49,7 @@ gulp.task('build:js', function() {
 		.pipe(ngAnnotate({
 			single_quotes: true
 		}).on('error', handleError))
+		.pipe(wrap('(function() {\n\'use strict\'\n<%= contents %>\n})();'))
 		.pipe(gulp.dest('app/assets/js'))
 		.pipe(connect.reload());
 });
