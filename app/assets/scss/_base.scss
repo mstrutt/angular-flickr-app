@@ -1,0 +1,29 @@
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+.visually-hidden {
+	// https://github.com/h5bp/html5-boilerplate/blob/1cf48987f5932e730e77f16a85e4b9235f97809f/src/css/main.css#L124
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+ul,
+ol {
+	&.no-bullet {
+		list-style-type: none;
+		padding: 0;
+	}
+}

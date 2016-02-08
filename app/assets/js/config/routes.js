@@ -7,7 +7,7 @@ function RoutingConfig ($stateProvider, $urlRouterProvider, $locationProvider) {
 			templateUrl: 'views/list.html'
 		})
 		.state('detail', {
-			url: '/photo/:id',
+			url: '/photo/:author/:id',
 			templateUrl: 'views/detail.html'
 		});
 
