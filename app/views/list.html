@@ -1,5 +1,8 @@
+<label for="search-box" class="visually-hidden"></label>
+<input id="search-box" class="search-box" type="search" ng-model="vm.tags" ng-change="vm.search()" ng-model-options="vm.searchOptions" placeholder="Something to go with your potato...">
+
 <ol class="content-block no-bullet">
-	<li class="post" ng-repeat="item in ::vm.feed track by item.link">
+	<li class="post" ng-repeat="item in vm.feed track by item.link">
 		<a class="post__thumb" ng-href="/photo/{{ ::item.author }}/{{ ::item.id }}" style="background-image: url('{{ ::item.media.m }}')">
 			<span class="visually-hidden" ng-bind="::item.title"></span>
 		</a>
@@ -12,5 +15,8 @@
 			<a class="post__author" ng-href="https://flickr.com/photos/{{ ::item.author_id }}/" ng-bind="::item.author"></a>
 			<a class="post__link" ng-href="{{ ::item.link }}">View <span class="visually-hidden" ng-bind="::item.title"></span> on Flickr</a>
 		</div>
+	</li>
+	<li ng-hide="vm.feed.length">
+		<p class="post--empty placeholder">No results matching "<span ng-bind="vm.tags"></span>" with "potato".</p>
 	</li>
 </ol>

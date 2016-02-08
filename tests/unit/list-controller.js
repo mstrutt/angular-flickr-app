@@ -21,4 +21,17 @@ describe('ListController', function() {
 			expect(vm.feed.length).toBe(5);
 		});
 	});
+
+	describe('vm.tags', function() {
+		it('is bound to the state param', function() {
+			vm = new $controller('ListController', {
+				feed: flickrFeed,
+				$stateParams: {
+					q: 'chips salad'
+				}
+			});
+
+			expect(vm.tags).toBe('chips salad');
+		})
+	})
 });

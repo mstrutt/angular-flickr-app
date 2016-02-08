@@ -27,12 +27,14 @@ function FlickrService ($http, $q, $sce, $filter) {
 		return day + (suffixes[day] || suffixes.default) + ' ' + month + ' at ' + time;
 	};
 
-	service.getFeed = function() {
+	service.getFeed = function(tags) {
+		tags = ['potato'].concat(tags || []).join(',');
+
 		return $http({
 			method: 'JSONP',
 			url: 'https://api.flickr.com/services/feeds/photos_public.gne',
 			params: {
-				tags: 'potato',
+				tags: tags,
 				tagmode: 'all',
 				format: 'json',
 				jsoncallback: 'JSON_CALLBACK'

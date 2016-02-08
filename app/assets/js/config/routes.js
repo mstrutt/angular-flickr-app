@@ -1,9 +1,10 @@
 function RoutingConfig ($stateProvider, $urlRouterProvider, $locationProvider) {
 	$stateProvider
 		.state('list', {
-			url: '/',
+			url: '/?q',
 			controller: 'ListController as vm',
 			resolve: ListController.resolve,
+			reloadOnSearch: false,
 			templateUrl: 'views/list.html'
 		})
 		.state('detail', {
