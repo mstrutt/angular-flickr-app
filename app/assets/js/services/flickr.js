@@ -8,7 +8,7 @@ function FlickrService ($http, $q, $sce, $filter) {
 		});
 	}
 
-	function formatDate (date) {
+	service.formatDate = function(date) {
 		var $date = $filter('date');
 		var day = $date(date, 'd');
 		var month = $date(date, 'MMM yyyy');
@@ -25,7 +25,7 @@ function FlickrService ($http, $q, $sce, $filter) {
 		};
 
 		return day + (suffixes[day] || suffixes.default) + ' ' + month + ' at ' + time;
-	}
+	};
 
 	service.getFeed = function() {
 		return $http({
@@ -42,7 +42,7 @@ function FlickrService ($http, $q, $sce, $filter) {
 				var items = response.data.items.map(function(item) {
 					item.id = item.link.match(/\/(\d+)\/$/)[1];
 					item.author = item.author.replace(/nobody@flickr.com \((.+)\)/, '$1');
-					item.published_formatted = formatDate(item.published);
+					item.published_formatted = service.formatDate(item.published);
 					item.tags = item.tags.split(' ');
 					// First two paragraphs are always the poster and the photo
 					item.description = $sce.trustAsHtml(item.description.replace(/^(\s*<p>.+?<\/p>\s*){2,2}/, '') || '<p class="placeholder">No description provided</p>');

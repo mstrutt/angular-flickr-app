@@ -1,7 +1,7 @@
 function DetailController (photo) {
 	var vm = this;
 
-	vm.photo = photo
+	vm.photo = photo;
 }
 
 DetailController.resolve = /* @ngInject */ {

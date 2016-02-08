@@ -1,6 +1,6 @@
 module.exports = function(config) {
-	var wiredep = require('wiredep'),
-		bowerFiles = wiredep({devDependencies: true}).js;
+	var wiredep = require('wiredep');
+	var bowerFiles = wiredep({devDependencies: true}).js;
 
 	config.set({
 
