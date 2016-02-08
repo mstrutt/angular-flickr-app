@@ -1,0 +1,35 @@
+.detail {
+	padding: 1em;
+
+	&__back {
+		float: right;
+	}
+
+	&__title {
+		margin: 0;
+	}
+
+	&__meta {
+		font-size: 1.2em;
+	}
+
+	&__spacer {
+		padding: 0 .5em;
+	}
+
+	&__image {
+		display: block;
+		margin: 0 auto 1em;
+	}
+
+	@media (min-width: 37.5em) {
+		&__body {
+			display: flex;
+			flex-flow: row nowrap;
+		}
+
+		&__image {
+			margin: 0 1em 0 0;
+		}
+	}
+}

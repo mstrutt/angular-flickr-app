@@ -1,16 +1,16 @@
-<h1> Flickr Public Feed</h1>
-
 <ol class="no-bullet">
-	<li ng-repeat="item in ::vm.feed track by item.link">
-		<h2><a ng-href="/photo/{{ ::item.author }}/{{ ::item.id }}" ng-bind="::item.title"></a></h2>
-		<a ng-href="/photo/{{ ::item.author }}/{{ ::item.id }}">
-			<img ng-src="{{ ::item.media.m }}" alt="{{ ::item.title }}" />
+	<li class="post" ng-repeat="item in ::vm.feed track by item.link">
+		<a class="post__thumb" ng-href="/photo/{{ ::item.author }}/{{ ::item.id }}" style="background-image: url('{{ ::item.media.m }}')">
+			<span class="visually-hidden" ng-bind="::item.title"></span>
 		</a>
-		<a ng-href="https://flickr.com/photos/{{ ::item.author_id }}/" ng-bind="::item.author"></a>
-		<p>
-			<span>Published</span>
-			<time datetime="{{ ::item.published }}" ng-bind="::item.published_formatted"></time>
-		</p>
-		<a ng-href="{{ ::item.link }}">View <span class="visually-hidden" ng-bind="::item.title"></span> on Flickr</a>
+		<div class="post__info">
+			<h2 class="post__title"><a ng-href="/photo/{{ ::item.author }}/{{ ::item.id }}" ng-bind="::item.title"></a></h2>
+			<p class="post__published">
+				<span>Published</span>
+				<time datetime="{{ ::item.published }}" ng-bind="::item.published_formatted"></time>
+			</p>
+			<a class="post__author" ng-href="https://flickr.com/photos/{{ ::item.author_id }}/" ng-bind="::item.author"></a>
+			<a class="post__link" ng-href="{{ ::item.link }}">View <span class="visually-hidden" ng-bind="::item.title"></span> on Flickr</a>
+		</div>
 	</li>
 </ol>

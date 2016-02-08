@@ -1,0 +1,42 @@
+body {
+	color: #333;
+}
+
+a {
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.placeholder {
+	color: rgba(0, 0, 0, .54);
+}
+
+.back-button {
+	$back-button-color: grey;
+	$back-button-size: 36px;
+
+	position: relative;
+	height: $back-button-size;
+	line-height: $back-button-size;
+	padding: 0 1em 0 .75em;
+	margin-left: ($back-button-size / 2) + 10;
+	background: $back-button-color;
+	color: white;
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	&::before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 100%;
+		border: ($back-button-size / 2) solid transparent;
+		border-right-color: $back-button-color;
+	}
+}

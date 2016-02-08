@@ -38,7 +38,7 @@ function FlickrService ($http, $sce, $filter) {
 					item.published_formatted = formatDate(item.published);
 					item.tags = item.tags.split(' ');
 					// First two paragraphs are always the poster and the photo
-					item.description = $sce.trustAsHtml(item.description.replace(/^(\s*<p>.+?<\/p>\s*){2,2}/, ''));
+					item.description = $sce.trustAsHtml(item.description.replace(/^(\s*<p>.+?<\/p>\s*){2,2}/, '') || '<p class="placeholder">No description provided</p>');
 					return item;
 				});
 			});

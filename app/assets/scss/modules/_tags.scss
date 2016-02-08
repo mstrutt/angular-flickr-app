@@ -1,0 +1,14 @@
+.tags {
+	margin: 1em 0;
+
+	&__heading {
+		display: inline-block;
+		margin: 0;
+		font-size: inherit;
+		font-weight: inherit;
+	}
+
+	&__list {
+		display: inline;
+	}
+}
