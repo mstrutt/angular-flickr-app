@@ -17,9 +17,13 @@
 		padding: 0 .5em;
 	}
 
-	&__image {
+	&__image-wrapper {
 		display: block;
-		margin: 0 auto 1em;
+		margin: 0 0 1em;
+	}
+
+	&__image {
+		margin: 0 auto;
 	}
 
 	@media (min-width: 37.5em) {
@@ -28,7 +32,7 @@
 			flex-flow: row nowrap;
 		}
 
-		&__image {
+		&__image-wrapper {
 			margin: 0 1em 0 0;
 		}
 	}

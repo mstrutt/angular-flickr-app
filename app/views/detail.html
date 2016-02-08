@@ -10,7 +10,9 @@
 	</p>
 
 	<div class="detail__body">
-		<img class="detail__image" ng-src="{{ ::vm.photo.media.m }}" alt="{{ ::vm.photo.title }}" />
+		<div class="detail__image-wrapper">
+			<img class="detail__image" ng-src="{{ ::vm.photo.media.m }}" alt="{{ ::vm.photo.title }}" />
+		</div>
 
 		<div class="detail__info">
 			<div class="detail__description" ng-bind-html="::vm.photo.description"></div>

@@ -34,10 +34,6 @@ a {
 	&:hover {
 		color: $primary-highlight;
 	}
-
-	&:active {
-		transform: translateY(1px);
-	}
 }
 
 .content-block {
