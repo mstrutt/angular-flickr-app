@@ -8,7 +8,7 @@
 
 Any distributed dependencies are referenced in [bower.json](https://github.com/mstrutt/angular-flickr-app/blob/master/bower.json) and any development dependencies are included in [package.json](https://github.com/mstrutt/angular-flickr-app/blob/master/package.json).
 
-## Devloping
+## Developing
 
 - `npm install` to set up (requires node `4.x.x`)
 - `gulp` to compile code and serve it to [localhost:9000](http://localhost:9000), then watch for changes
